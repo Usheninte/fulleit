@@ -8,7 +8,7 @@ Template.eit.onCreated(function() {
 
 Template.eit.helpers({
   eits() {
-    return Eits.find({});
+    return Eits.find({}, { sort: { createdAt: -1 } });
   },
 });
 
@@ -16,13 +16,26 @@ Template.eit.events({
   'submit .eit-add'(event) {
     event.preventDefault();
 
-    const target = event.target;
     // collect form data
-    const firstname = target.firstname.value;
-    const surname = target.surname.value;
-    const country = target.country.value;
-    const age = target.age.value;
+    let target = event.target;
+    let firstname = target.firstname.value;
+    let surname = target.surname.value;
+    let country = target.country.value;
+    let age = target.age.value;
 
-    Meteor.call('eits.insert', firstname, surname, country, age);
+    // add eit data to db
+    Eits.insert({
+      firstname,
+      surname,
+      country,
+      age,
+      createdAt: new Date(),
+    });
+
+    // clear form
+    firstname = '';
+    surname = '';
+    country = '';
+    age = '';
   },
 });

@@ -19,4 +19,8 @@ Meteor.methods({
       createdAt: new Date(),
     });
   },
+
+  'eits.remove'(_id) {
+    return Eits.remove({});
+  },
 });
