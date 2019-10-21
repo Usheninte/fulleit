@@ -4,7 +4,6 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 // Import needed templates
 import '../../ui/layouts/body/body.js';
 import '../../ui/pages/home/home.js';
-import '../../ui/pages/table/table.js';
 import '../../ui/pages/not-found/not-found.js';
 
 // Set up all routes in the app
@@ -12,13 +11,6 @@ FlowRouter.route('/', {
   name: 'App.home',
   action() {
     BlazeLayout.render('App_body', { main: 'App_home' });
-  },
-});
-
-FlowRouter.route('/people', {
-  name: 'Data.table',
-  action() {
-    BlazeLayout.render('Data_table', { main: 'Data_table' });
   },
 });
 
