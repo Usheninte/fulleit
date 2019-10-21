@@ -24,14 +24,5 @@
     <input type="submit" name="submit" 
             value="Add new EIT">
   </form>
-  {{#each eits}}
-    <div class="eit-data">
-      <span class="eit-item">{{firstname}}</span>
-      <span class="eit-item">{{surname}}</span>
-      <span class="eit-item">{{country}}</span>
-      <span class="eit-item">{{age}}</span>
-      <input class="delete-one" type="button" value="Delete">
-    </div>
-  {{/each}}
-  <button>Bulk Delete EITs</button>
+  <h2><a href="/people">View EIT info</a></h2>
 </template>
