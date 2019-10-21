@@ -1,34 +1,56 @@
 // Fill the DB with example data on startup
 
 import { Meteor } from 'meteor/meteor';
-import { Links } from '../../api/links/links.js';
+import { Eits } from '../../api/links/links.js';
 
 Meteor.startup(() => {
-  // if the Links collection is empty
-  if (Links.find().count() === 0) {
+  // if the Eits collection is empty
+  if (Eits.find().count() === 0) {
     const data = [
       {
-        title: 'Do the Tutorial',
-        url: 'https://www.meteor.com/try',
+        firstName: 'Gordon',
+        surname: 'Norman',
+        country: 'Swaziland',
+        age: '22',
         createdAt: new Date(),
       },
       {
-        title: 'Follow the Guide',
-        url: 'http://guide.meteor.com',
+        firstName: 'Lance',
+        surname: 'Bogrol',
+        country: 'Sudan',
+        age: '30',
         createdAt: new Date(),
       },
       {
-        title: 'Read the Docs',
-        url: 'https://docs.meteor.com',
+        firstName: 'Natalya',
+        surname: 'Undergrowth',
+        country: 'Angola',
+        age: '26',
         createdAt: new Date(),
       },
       {
-        title: 'Discussions',
-        url: 'https://forums.meteor.com',
+        firstName: 'Niles',
+        surname: 'Peppertrout',
+        country: 'Niger',
+        age: '28',
+        createdAt: new Date(),
+      },
+      {
+        firstName: 'Linguina',
+        surname: 'Nettlewater',
+        country: 'Zambia',
+        age: '21',
+        createdAt: new Date(),
+      },
+      {
+        firstName: 'Penny',
+        surname: 'Tool',
+        country: 'Egypt',
+        age: '22',
         createdAt: new Date(),
       },
     ];
 
-    data.forEach(link => Links.insert(link));
+    data.forEach(eit => Eits.insert(eit));
   }
 });

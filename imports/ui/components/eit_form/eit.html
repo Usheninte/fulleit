@@ -1,21 +1,35 @@
 <template name="eit">
   <h1>EIT management</h1>
-  <form>
+  <form class="eit-add">
     <div>
       <label>First Name</label>
-      <input type="text" required />
+      <input placeholder=" enter First Name" 
+            type="text" name="firstname" required />
     </div>
     <div>
       <label>Surname</label>
-      <input type="text" required />
+      <input placeholder=" enter Surname" 
+            type="text" name="surname" required />
     </div>
     <div>
       <label>Country</label>
-      <input type="text" required />
+      <input placeholder=" enter Country" 
+            type="text" name="country" required />
     </div>
     <div>
       <label>Age</label>
-      <input type="number" required />
+      <input placeholder=" enter Age" 
+            type="number" name="age" required />
     </div>
+    <input type="submit" name="submit" 
+            value="Add new EIT">
   </form>
+  {{#each eits}}
+    <span>
+      <span>{{firsname}}</span>
+      <span>{{surname}}</span>
+      <span>{{country}}</span>
+      <span>{{age}}</span>
+    </span>
+  {{/each}}
 </template>
