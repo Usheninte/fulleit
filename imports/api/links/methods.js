@@ -2,16 +2,20 @@
 
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { Links } from './links.js';
+import { Eits } from './links.js';
 
 Meteor.methods({
-  'links.insert'(title, url) {
-    check(url, String);
-    check(title, String);
+  'eits.insert'(firstname, surname, country, age) {
+    check(firstname, String);
+    check(surname, String);
+    check(country, String);
+    check(age, String);
 
-    return Links.insert({
-      url,
-      title,
+    return Eits.insert({
+      firstname,
+      surname,
+      country,
+      age,
       createdAt: new Date(),
     });
   },

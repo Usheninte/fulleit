@@ -1,8 +1,8 @@
 // All links-related publications
 
 import { Meteor } from 'meteor/meteor';
-import { Links } from '../links.js';
+import { Eits } from '../links.js';
 
-Meteor.publish('links.all', function () {
-  return Links.find();
+Meteor.publish('eits.all', function() {
+  return Eits.find();
 });

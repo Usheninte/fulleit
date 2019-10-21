@@ -18,27 +18,11 @@ Template.eit.events({
 
     const target = event.target;
     // collect form data
-    const firstname = target.firstname;
-    const surname = target.surname;
-    const country = target.country;
-    const age = target.age;
+    const firstname = target.firstname.value;
+    const surname = target.surname.value;
+    const country = target.country.value;
+    const age = target.age.value;
 
-    Meteor.call(
-      'eits.insert',
-      firstname.value,
-      surname.value,
-      country.value,
-      age.value,
-      error => {
-        if (error) {
-          alert(error.error);
-        } else {
-          firstname.value = '';
-          surname.value = '';
-          country.value = '';
-          age.value = '';
-        }
-      },
-    );
+    Meteor.call('eits.insert', firstname, surname, country, age);
   },
 });

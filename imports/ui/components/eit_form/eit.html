@@ -4,32 +4,32 @@
     <div>
       <label>First Name</label>
       <input placeholder=" enter First Name" 
-            type="text" name="firstname" required />
+            type="text" name="firstname" required >
     </div>
     <div>
       <label>Surname</label>
       <input placeholder=" enter Surname" 
-            type="text" name="surname" required />
+            type="text" name="surname" required >
     </div>
     <div>
       <label>Country</label>
       <input placeholder=" enter Country" 
-            type="text" name="country" required />
+            type="text" name="country" required >
     </div>
     <div>
       <label>Age</label>
       <input placeholder=" enter Age" 
-            type="number" name="age" required />
+            type="number" name="age" required >
     </div>
     <input type="submit" name="submit" 
             value="Add new EIT">
   </form>
   {{#each eits}}
-    <span>
-      <span>{{firsname}}</span>
-      <span>{{surname}}</span>
-      <span>{{country}}</span>
-      <span>{{age}}</span>
-    </span>
+    <div class="eit-data">
+      <span class="eit-item">{{firstname}}</span>
+      <span class="eit-item">{{surname}}</span>
+      <span class="eit-item">{{country}}</span>
+      <span class="eit-item">{{age}}</span>
+    </div>
   {{/each}}
 </template>
