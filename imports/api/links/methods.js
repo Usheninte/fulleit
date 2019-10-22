@@ -41,8 +41,17 @@ Meteor.methods({
     });
   },
 
-  'eits.edit'(_id) {
+  'eits.setEdit'(_id) {
     let id = FlowRouter.getParam(id);
     return Eits.findOne({ _id: id });
+  },
+
+  'eits.edit'(_id, firstname, surname, country, age) {
+    return Eits.update({
+      firstname,
+      surname,
+      country,
+      age,
+    });
   },
 });

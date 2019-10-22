@@ -2,6 +2,7 @@ import { Eits } from '/imports/api/links/links.js';
 import { Meteor } from 'meteor/meteor';
 
 import './eit.html';
+import '../eit_edit/eit_edit.html';
 
 import '../../../startup/client/routes';
 
@@ -16,6 +17,7 @@ Template.eit.helpers({
 });
 
 Template.eit.events({
+  // add EIT
   'submit .eit-add'(event) {
     event.preventDefault();
 
@@ -26,7 +28,7 @@ Template.eit.events({
     let country = target.country;
     let age = target.age;
 
-    // add eit data to db
+    // add EIT data to db
     Meteor.call(
       'eits.insert',
       firstname.value,
@@ -41,23 +43,51 @@ Template.eit.events({
     country.value = '';
     age.value = '';
   },
-});
 
-Template.eit.events({
-  'click .toggle-checked'() {
-    Meteor.call('eits.setChecked', this._id, !this.checked);
-  },
-
+  // delete EIT
   'click .delete'() {
     event.preventDefault(event);
     Meteor.call('eits.remove', this._id);
   },
 
+  // select multiple EITs
+  'click .toggle-checked'() {
+    Meteor.call('eits.setChecked', this._id, !this.checked);
+  },
+
+  // delete multiple EITs
   'click .bulk-delete'() {
     Meteor.call('eits.bulkDelete');
   },
 
+  // edit specific EIT
   'click .edit-btn'() {
-    Meteor.call('eits.edit', this._id);
+    Meteor.call('eits.setEdit', this._id);
+  },
+
+  'submit .eit-update'() {
+    event.preventDefault();
+
+    // connect to submitted data
+    let target = event.target;
+    let firstname = target.firstname;
+    let surname = target.surname;
+    let country = target.country;
+    let age = target.age;
+
+    // edit EIR data in db
+    Meteor.call(
+      'eits.edit',
+      firstname.value,
+      surname.value,
+      country.value,
+      age.value,
+    );
+
+    // clear form
+    firstname.value = '';
+    surname.value = '';
+    country.value = '';
+    age.value = '';
   },
 });

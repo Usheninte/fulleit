@@ -1,3 +1,3 @@
 import './edit.html';
 
-import '../../components/eit_edit/eit_edit';
+import '../../components/eit_form/eit';
