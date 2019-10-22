@@ -18,24 +18,37 @@ Template.eit.events({
 
     // collect form data
     let target = event.target;
-    let firstname = target.firstname.value;
-    let surname = target.surname.value;
-    let country = target.country.value;
-    let age = target.age.value;
+    let firstname = target.firstname;
+    let surname = target.surname;
+    let country = target.country;
+    let age = target.age;
 
     // add eit data to db
-    Eits.insert({
-      firstname,
-      surname,
-      country,
-      age,
-      createdAt: new Date(),
-    });
+    Meteor.call(
+      'eits.insert',
+      firstname.value,
+      surname.value,
+      country.value,
+      age.value,
+    );
 
     // clear form
-    firstname = '';
-    surname = '';
-    country = '';
-    age = '';
+    firstname.value = '';
+    surname.value = '';
+    country.value = '';
+    age.value = '';
+  },
+});
+
+Template.eit.events({
+  'click .toggle-checked'() {
+    // Meteor.call('eits.update', this._id, {
+    //   $set: { checked: !this.checked },
+    // });
+  },
+
+  'click .delete'() {
+    event.preventDefault(event);
+    Meteor.call('eits.remove', this._id);
   },
 });

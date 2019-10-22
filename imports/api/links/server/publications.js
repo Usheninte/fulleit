@@ -3,6 +3,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Eits } from '../links.js';
 
-Meteor.publish('eits.all', function() {
+Meteor.publish('eits.all', () => {
   return Eits.find();
 });

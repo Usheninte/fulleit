@@ -24,14 +24,16 @@
     <input type="submit" name="submit" 
             value="Add new EIT">
   </form>
+
   {{#each eits}}
-    <div class="eit-data">
+    <div class="eit-data {{#if checked}}checked{{/if}}">
+      <input type="checkbox" checked={{checked}} class="toggle-checked">
       <span class="eit-item">{{firstname}}</span>
       <span class="eit-item">{{surname}}</span>
       <span class="eit-item">{{country}}</span>
       <span class="eit-item">{{age}}</span>
-      <input class="delete-one" type="button" value="Delete">
+      <input class="delete" type="button" value="Delete">
     </div>
   {{/each}}
-  <button>Bulk Delete EITs</button>
+  <button class="bulk-delete">Bulk Delete EITs</button>
 </template>

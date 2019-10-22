@@ -1,4 +1,4 @@
-// Definition of the links collection
+// Definition of the eits collection
 
 import { Mongo } from 'meteor/mongo';
 

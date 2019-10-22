@@ -21,6 +21,8 @@ Meteor.methods({
   },
 
   'eits.remove'(_id) {
-    return Eits.remove({});
+    return Eits.remove({
+      _id,
+    });
   },
 });
