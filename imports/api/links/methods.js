@@ -39,4 +39,14 @@ Meteor.methods({
       Eits.remove(selected._id);
     });
   },
+
+  'eits.edit'(firstname, surname, country, age) {
+    return Eits.update({
+      firstname,
+      surname,
+      country,
+      age,
+      createdAt: new Date(),
+    });
+  },
 });
