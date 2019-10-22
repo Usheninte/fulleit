@@ -42,13 +42,15 @@ Template.eit.events({
 
 Template.eit.events({
   'click .toggle-checked'() {
-    // Meteor.call('eits.update', this._id, {
-    //   $set: { checked: !this.checked },
-    // });
+    Meteor.call('eits.setChecked', this._id, !this.checked);
   },
 
   'click .delete'() {
     event.preventDefault(event);
     Meteor.call('eits.remove', this._id);
+  },
+
+  'click .bulk-delete'() {
+    Meteor.call('eits.bulkDelete');
   },
 });

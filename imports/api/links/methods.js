@@ -25,4 +25,18 @@ Meteor.methods({
       _id,
     });
   },
+
+  'eits.setChecked'(_id, checked) {
+    return Eits.update(_id, {
+      $set: { checked: checked },
+    });
+  },
+
+  'eits.bulkDelete'() {
+    const checkedEits = Eits.find({ checked: true }).fetch();
+
+    checkedEits.forEach(function(selected) {
+      Eits.remove(selected._id);
+    });
+  },
 });
