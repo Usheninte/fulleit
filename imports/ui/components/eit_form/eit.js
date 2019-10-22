@@ -60,34 +60,22 @@ Template.eit.events({
     Meteor.call('eits.bulkDelete');
   },
 
-  // edit specific EIT
+  // set edit to specific EIT
   'click .edit-btn'() {
     Meteor.call('eits.setEdit', this._id);
   },
 
+  // edit specific EIT
   'submit .eit-update'() {
     event.preventDefault();
 
-    // connect to submitted data
-    let target = event.target;
-    let firstname = target.firstname;
-    let surname = target.surname;
-    let country = target.country;
-    let age = target.age;
-
-    // edit EIR data in db
-    Meteor.call(
-      'eits.edit',
-      firstname.value,
-      surname.value,
-      country.value,
-      age.value,
+    Eits.find(
+      { _id, firstname, surname, country, age },
+      { sort: { createdAt: -1 } },
     );
 
-    // clear form
-    firstname.value = '';
-    surname.value = '';
-    country.value = '';
-    age.value = '';
+    /* 
+      rest of logic 
+    */
   },
 });
