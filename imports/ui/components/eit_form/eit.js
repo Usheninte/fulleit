@@ -1,6 +1,9 @@
 import { Eits } from '/imports/api/links/links.js';
 import { Meteor } from 'meteor/meteor';
+
 import './eit.html';
+
+import '../../../startup/client/routes';
 
 Template.eit.onCreated(function() {
   Meteor.subscribe('eits.all');
@@ -52,5 +55,9 @@ Template.eit.events({
 
   'click .bulk-delete'() {
     Meteor.call('eits.bulkDelete');
+  },
+
+  'click .edit-btn'() {
+    Meteor.call('eits.edit', this._id);
   },
 });

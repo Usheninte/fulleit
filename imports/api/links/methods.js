@@ -2,6 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Eits } from './links.js';
 
 Meteor.methods({
@@ -40,13 +41,8 @@ Meteor.methods({
     });
   },
 
-  'eits.edit'(firstname, surname, country, age) {
-    return Eits.update({
-      firstname,
-      surname,
-      country,
-      age,
-      createdAt: new Date(),
-    });
+  'eits.edit'(_id) {
+    let id = FlowRouter.getParam(id);
+    return Eits.findOne({ _id: id });
   },
 });

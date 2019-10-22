@@ -15,7 +15,7 @@ FlowRouter.route('/', {
   },
 });
 
-FlowRouter.route('/edit', {
+FlowRouter.route('/edit/:id', {
   name: 'Eit.edit',
   action() {
     BlazeLayout.render('Edit_page', { main: 'Edit_page' });

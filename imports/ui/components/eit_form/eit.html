@@ -33,8 +33,10 @@
       <span class="eit-item">{{country}}</span>
       <span class="eit-item">{{age}}</span>
       <input class="delete" type="button" value="Delete">
+      <a href="/edit/{{_id}}">
+        <button type="button" class="btn edit-btn btn-primary">Edit</button>
+      </a>
     </div>
   {{/each}}
   <input type="button" class="bulk-delete" value="Delete Selected" >
-  <h1><a href="/edit">Edit</a></h1>
 </template>
