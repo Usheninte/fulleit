@@ -12,9 +12,20 @@ a {
   color: #ffd56f;
 }
 
-.eit-form {
+.form-title {
+  text-decoration: underline;
+}
+
+#eit-form {
   display: flex block;
   flex-wrap: wrap;
+  background-color: #9b9fa2;
+  color: #232425;
+  padding: 0.2em 0.8em 0.8em 0.8em;
+  margin: 2em 0.5em;
+  width: 26%;
+  border: 0.1em solid #3da2b8;
+  border-radius: 5%;
 }
 
 .form-section {
@@ -26,6 +37,7 @@ a {
 .form-label {
   justify-content: flex-start;
   width: 100%;
+  font-weight: bold;
   // flex-grow: 2;
 }
 
@@ -48,6 +60,10 @@ a {
     display: block;
     margin: 1em;
   }
+
+  .eit-form {
+    width: 62%;
+  }
 }
 
 /* 
@@ -57,5 +73,9 @@ a {
 @media (min-width: 320px) and (max-width: 480px) {
   .mobile-actions {
     display: block;
+  }
+
+  .eit-form {
+    width: 90%;
   }
 }
