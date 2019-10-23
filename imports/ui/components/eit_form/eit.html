@@ -1,6 +1,6 @@
 <template name="eit">
   <h1 class="form-title">EIT management</h1>
-  <form class="eit-add" id="eit-form">
+  <form class="eit-add eit-form">
     <div class="form-section">
       <label class="form-label">First Name</label>
       <input placeholder=" enter First Name"
@@ -36,7 +36,7 @@
       <th><uppercase>Surname</uppercase></th>
       <th><uppercase>Country</uppercase></th>
       <th><uppercase>Age</uppercase></th>
-      <th></th>
+      <th class="actions-field">Actions</th>
     </tr>
     {{#each eits}}
     <tr class="eit-data {{#if checked}}checked{{/if}}">
@@ -46,8 +46,8 @@
       <td><span class="eit-item form-data">{{country}}</span></td>
       <td><span class="eit-item form-data">{{age}}</span></td>
       <td>
-        <span class="mobile-actions">
-          <button type="button" class="btn delete btn-danger">Delete</button>
+        <span class="actions">
+          <button type="button" class="btn delete delete-ui btn-danger">Delete</button>
           <a href="/edit/{{_id}}">
             <button type="button" class="btn edit-btn btn-primary">Edit</button>
           </a>
