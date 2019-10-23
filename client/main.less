@@ -1,19 +1,35 @@
+/*
+  Imports:
+
+  - 404 page styles
+  - Bootstrap CSS
+*/
+
 @import '{}/imports/ui/stylesheets/not-found.less';
 @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
+@import 'https://fonts.googleapis.com/css?family=Lora:400,700|Merriweather:400,700,900&display=swap';
+
+// General styles
 
 body {
   font-size: 16px;
   margin: 1em;
   background-color: #232425;
   color: #fafafa;
+  // Native light font
+  font-family: 'Lora', serif;
 }
 
 a {
   color: #ffd56f;
 }
 
+// Form styles
+
 .form-title {
   text-decoration: underline;
+  // Native bold font
+  font-family: 'Merriweather', serif;
 }
 
 #eit-form {
@@ -48,6 +64,11 @@ a {
 
 .form-submit {
   justify-content: flex-end;
+}
+
+.btn {
+  // Native bold font
+  font-family: 'Merriweather', serif;
 }
 
 /* 
