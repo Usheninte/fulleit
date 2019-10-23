@@ -11,3 +11,51 @@ body {
 a {
   color: #ffd56f;
 }
+
+.eit-form {
+  display: flex block;
+  flex-wrap: wrap;
+}
+
+.form-section {
+  margin: 1em;
+  width: 30%;
+  justify-content: space-between;
+}
+
+.form-label {
+  justify-content: flex-start;
+  width: 100%;
+  // flex-grow: 2;
+}
+
+.form-field {
+  justify-content: flex-end;
+  // flex-grow: 1;
+}
+
+.form-submit {
+  justify-content: flex-end;
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .form-section {
+    display: block;
+    margin: 1em;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .mobile-actions {
+    display: block;
+  }
+}

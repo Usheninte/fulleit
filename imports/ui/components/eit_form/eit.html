@@ -1,28 +1,32 @@
 <template name="eit">
   <h1>EIT management</h1>
-  <form class="eit-add">
-    <div>
-      <label>First Name</label>
-      <input placeholder=" enter First Name" 
+  <form class="eit-add eit-form">
+    <div class="form-section">
+      <label class="form-label">First Name</label>
+      <input placeholder=" enter First Name"
+            class="form-field"
             type="text" name="firstname" required >
     </div>
-    <div>
-      <label>Surname</label>
+    <div class="form-section">
+      <label class="form-label">Surname</label>
       <input placeholder=" enter Surname" 
+            class="form-field"
             type="text" name="surname" required >
     </div>
-    <div>
-      <label>Country</label>
+    <div class="form-section">
+      <label class="form-label">Country</label>
       <input placeholder=" enter Country" 
+            class="form-field"
             type="text" name="country" required >
     </div>
-    <div>
-      <label>Age</label>
+    <div class="form-section">
+      <label class="form-label">Age</label>
       <input placeholder=" enter Age" 
+            class="form-field"
             type="number" name="age" required >
     </div>
-    <input type="submit" name="submit" 
-            value="Add new EIT">
+    <button type="button submit" name="submit" 
+            class="btn form-submit btn-info">Add new EIT</button>
   </form>
 
   {{#each eits}}
@@ -32,11 +36,13 @@
       <span class="eit-item">{{surname}}</span>
       <span class="eit-item">{{country}}</span>
       <span class="eit-item">{{age}}</span>
-      <input class="delete" type="button" value="Delete">
-      <a href="/edit/{{_id}}">
-        <button type="button" class="btn edit-btn btn-primary">Edit</button>
-      </a>
+      <span class="mobile-actions">
+        <button type="button" class="btn delete btn-danger">Delete</button>
+        <a href="/edit/{{_id}}">
+          <button type="button" class="btn edit-btn btn-primary">Edit</button>
+        </a>
+      </span>
     </div>
   {{/each}}
-  <input type="button" class="bulk-delete" value="Delete Selected" >
+  <button type="button" class="btn bulk-delete btn-warning">Delete Selected</button>
 </template>

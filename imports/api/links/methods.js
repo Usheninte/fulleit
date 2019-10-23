@@ -47,11 +47,18 @@ Meteor.methods({
   },
 
   'eits.edit'(_id, firstname, surname, country, age) {
-    return Eits.update({
-      firstname,
-      surname,
-      country,
-      age,
+    check(firstname, String);
+    check(surname, String);
+    check(country, String);
+    check(age, String);
+
+    Eits.update({
+      $set: {
+        firstname: firstname,
+        surname: surname,
+        country: country,
+        age: age,
+      },
     });
   },
 });

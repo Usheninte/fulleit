@@ -1,28 +1,32 @@
 <template name="eit_edit">
   <h1>Edit EIT</h1>
-  <form class="eit-update" method="POST">
-    <div>
-      <label>First Name</label>
-      <input placeholder=" enter First Name" 
+  <form class="eit-update eit-form">
+    <div class="form-section">
+      <label class="form-label">First Name</label>
+      <input placeholder=" enter First Name"
+            class="form-field" 
             type="text" name="firstname" required >
     </div>
-    <div>
-      <label>Surname</label>
+    <div class="form-section">
+      <label class="form-label">Surname</label>
       <input placeholder=" enter Surname" 
+            class="form-field"
             type="text" name="surname" required >
     </div>
-    <div>
-      <label>Country</label>
+    <div class="form-section">
+      <label class="form-label">Country</label>
       <input placeholder=" enter Country" 
+            class="form-field"
             type="text" name="country" required >
     </div>
-    <div>
-      <label>Age</label>
+    <div class="form-section">
+      <label class="form-label">Age</label>
       <input placeholder=" enter Age" 
+            class="form-field"
             type="number" name="age" required >
     </div>
-    <input type="submit" name="submit" 
-            value="Save Changes">
+    <button type="button submit" name="submit" 
+            class="btn form-submit btn-info">Save Changes</button>
   </form>
   
   <a href="/">Homepage</a>
