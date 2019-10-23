@@ -1,9 +1,8 @@
 import { Eits } from '/imports/api/links/links.js';
-// import { FlowRouter } from 'meteor/kadira:flow-router';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Meteor } from 'meteor/meteor';
 
 import './eit.html';
-import '../eit_edit/eit_edit.html';
 
 import '../../../startup/client/routes';
 
@@ -61,31 +60,8 @@ Template.eit.events({
     Meteor.call('eits.bulkDelete');
   },
 
-  // set edit to specific EIT
-  'click .edit-btn'() {
-    Meteor.call('eits.setEdit', this._id);
-  },
-
-  // edit specific EIT
-  'submit .eit-update'(event) {
-    event.preventDefault();
-
-    // collect form data
-    let target = event.target;
-    let firstname = target.firstname;
-    let surname = target.surname;
-    let country = target.country;
-    let age = target.age;
-
-    Meteor.call(
-      'eits.edit',
-      this._id,
-      firstname.value,
-      surname.value,
-      country.value,
-      age.value,
-    );
-
-    // FlowRouter.router('/');
-  },
+  // // set edit to specific EIT
+  // 'click .edit-btn'() {
+  //   Meteor.call('eits.setEdit', this._id);
+  // },
 });

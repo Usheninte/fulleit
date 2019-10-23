@@ -30,7 +30,7 @@
   </form>
 
   <table>
-    <tr>
+    <tr class="table-headers">
       <th></th>
       <th><uppercase>First Name</uppercase></th>
       <th><uppercase>Surname</uppercase></th>
@@ -38,7 +38,7 @@
       <th><uppercase>Age</uppercase></th>
       <th></th>
     </tr>
-  {{#each eits}}
+    {{#each eits}}
     <tr class="eit-data {{#if checked}}checked{{/if}}">
       <td><input type="checkbox" checked={{checked}} class="toggle-checked"></td>
       <td><span class="eit-item form-data">{{firstname}}</span></td>
@@ -54,7 +54,7 @@
         </span>
       </td>
     </tr>
-  {{/each}}
+    {{/each}}
   </table>
-  <button type="button" class="btn bulk-delete btn-warning">Delete Selected</button>
+  <button type="button" class="btn bulk-delete btn-danger">Delete Selected</button>
 </template>

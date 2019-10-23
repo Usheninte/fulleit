@@ -47,12 +47,7 @@ Meteor.methods({
   },
 
   'eits.edit'(_id, firstname, surname, country, age) {
-    check(firstname, String);
-    check(surname, String);
-    check(country, String);
-    check(age, String);
-
-    Eits.update({
+    Eits.update(_id, {
       $set: {
         firstname: firstname,
         surname: surname,
