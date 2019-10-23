@@ -29,20 +29,32 @@
             class="btn form-submit btn-info">Add new EIT</button>
   </form>
 
+  <table>
+    <tr>
+      <th></th>
+      <th><uppercase>First Name</uppercase></th>
+      <th><uppercase>Surname</uppercase></th>
+      <th><uppercase>Country</uppercase></th>
+      <th><uppercase>Age</uppercase></th>
+      <th></th>
+    </tr>
   {{#each eits}}
-    <div class="eit-data {{#if checked}}checked{{/if}}">
-      <input type="checkbox" checked={{checked}} class="toggle-checked">
-      <span class="eit-item">{{firstname}}</span>
-      <span class="eit-item">{{surname}}</span>
-      <span class="eit-item">{{country}}</span>
-      <span class="eit-item">{{age}}</span>
-      <span class="mobile-actions">
-        <button type="button" class="btn delete btn-danger">Delete</button>
-        <a href="/edit/{{_id}}">
-          <button type="button" class="btn edit-btn btn-primary">Edit</button>
-        </a>
-      </span>
-    </div>
+    <tr class="eit-data {{#if checked}}checked{{/if}}">
+      <td><input type="checkbox" checked={{checked}} class="toggle-checked"></td>
+      <td><span class="eit-item">{{firstname}}</span></td>
+      <td><span class="eit-item">{{surname}}</span></td>
+      <td><span class="eit-item">{{country}}</span></td>
+      <td><span class="eit-item">{{age}}</span></td>
+      <td>
+        <span class="mobile-actions">
+          <button type="button" class="btn delete btn-danger">Delete</button>
+          <a href="/edit/{{_id}}">
+            <button type="button" class="btn edit-btn btn-primary">Edit</button>
+          </a>
+        </span>
+      </td>
+    </tr>
   {{/each}}
+  </table>
   <button type="button" class="btn bulk-delete btn-warning">Delete Selected</button>
 </template>
