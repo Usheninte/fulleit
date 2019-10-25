@@ -47,7 +47,7 @@ Template.eit.events({
   // delete EIT
   'click .delete'() {
     event.preventDefault(event);
-    Meteor.call('eits.remove', this._id);
+    Meteor.call('eits.remove', this._id, this.editor);
   },
 
   // select multiple EITs

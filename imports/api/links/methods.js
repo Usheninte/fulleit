@@ -26,17 +26,11 @@ Meteor.methods({
     });
   },
 
-  'eits.remove'(_id) {
-    if (!Meteor.user()) {
-      return new Meteor.Error('Permission Denied');
-    }
-
-    let eit = Eits.findOne({ _id });
-
-    if (Meteor.user() !== eit.editor) {
-      return new Meteor.Error(
-        'Permission Denied: You did not create this EIT.',
-      );
+  'eits.remove'(_id, editor) {
+    // editor = Eits.findOne({ editor });
+    console.log(Meteor.userId());
+    if (!Meteor.userId()) {
+      throw new Meteor.Error('Permission denied: can not delete.');
     }
 
     return Eits.remove({
@@ -51,9 +45,9 @@ Meteor.methods({
   },
 
   'eits.bulkDelete'() {
-    if (!Meteor.user()) {
-      return new Meteor.Error('Permission Denied');
-    }
+    // if (!Meteor.user()) {
+    //   return new Meteor.Error('Permission Denied');
+    // }
 
     const checkedEits = Eits.find({ checked: true }).fetch();
 
@@ -67,19 +61,7 @@ Meteor.methods({
     return Eits.findOne({ _id: id });
   },
 
-  'eits.edit'(_id, firstname, surname, country, age) {
-    if (!Meteor.user()) {
-      return new Meteor.Error('Permission Denied');
-    }
-
-    let eit = Eit.findOne({ _id });
-
-    if (Meteor.user() !== eit.editor) {
-      return new Meteor.Error(
-        'Permission Denied: You did not create this EIT.',
-      );
-    }
-
+  'eits.edit'(_id, firstname, surname, country, age, editor) {
     Eits.update(_id, {
       $set: {
         firstname: firstname,
