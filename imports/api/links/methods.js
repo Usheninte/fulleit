@@ -31,7 +31,7 @@ Meteor.methods({
       return new Meteor.Error('Permission Denied');
     }
 
-    let eit = Eit.findOne({ _id });
+    let eit = Eits.findOne({ _id });
 
     if (Meteor.user() !== eit.editor) {
       return new Meteor.Error(
