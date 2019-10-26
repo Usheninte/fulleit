@@ -2,7 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+// import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Eits } from './links.js';
 
 Meteor.methods({
@@ -27,9 +27,11 @@ Meteor.methods({
   },
 
   'eits.remove'(_id, editor) {
-    // editor = Eits.findOne({ editor });
-    console.log(Meteor.userId());
     if (!Meteor.userId()) {
+      throw new Meteor.Error('Permission denied: can not delete.');
+    }
+
+    if (Meteor.userId() !== editor) {
       throw new Meteor.Error('Permission denied: can not delete.');
     }
 
@@ -45,10 +47,6 @@ Meteor.methods({
   },
 
   'eits.bulkDelete'() {
-    // if (!Meteor.user()) {
-    //   return new Meteor.Error('Permission Denied');
-    // }
-
     const checkedEits = Eits.find({ checked: true }).fetch();
 
     checkedEits.forEach(function(selected) {
@@ -56,12 +54,14 @@ Meteor.methods({
     });
   },
 
-  'eits.setEdit'(_id) {
-    let id = FlowRouter.getParam(id);
-    return Eits.findOne({ _id: id });
-  },
+  // 'eits.edit'(_id) {
+  //   let id = FlowRouter.getParam(id);
+  //   return Eits.findOne({ _id: id });
 
-  'eits.edit'(_id, firstname, surname, country, age, editor) {
+  //   FlowRouter.go('/edit/:id');
+  // },
+
+  'eits.update'(_id, firstname, surname, country, age) {
     Eits.update(_id, {
       $set: {
         firstname: firstname,

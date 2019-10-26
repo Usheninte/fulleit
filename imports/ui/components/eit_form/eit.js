@@ -1,5 +1,4 @@
 import { Eits } from '/imports/api/links/links.js';
-import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Meteor } from 'meteor/meteor';
 
 import './eit.html';
@@ -60,8 +59,7 @@ Template.eit.events({
     Meteor.call('eits.bulkDelete');
   },
 
-  // // set edit to specific EIT
-  // 'click .edit-btn'() {
-  //   Meteor.call('eits.setEdit', this._id);
-  // },
+  'click .edit-btn'() {
+    Meteor.call('eits.edit', id);
+  },
 });
